@@ -44,13 +44,11 @@ body {
 }
 
 h1 {
-  font-size: 46px;
-  text-shadow: 0 0 20px rgba(255,255,255,0.6);
+  font-size: 42px;
+  cursor: pointer;
 }
 
-h2 {
-  font-size: 32px;
-}
+h2 { font-size: 30px; }
 
 p {
   max-width: 750px;
@@ -59,8 +57,8 @@ p {
 }
 
 button {
-  margin-top: 35px;
-  padding: 14px 30px;
+  margin-top: 25px;
+  padding: 12px 28px;
   border-radius: 30px;
   border: none;
   font-size: 16px;
@@ -68,12 +66,10 @@ button {
   cursor: pointer;
   background: white;
   color: #d63384;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.1);
-}
+button:hover { transform: scale(1.1); }
 
 .emoji-bg {
   font-size: 60px;
@@ -86,7 +82,31 @@ button:hover {
   50% { transform: translateY(-10px); }
 }
 
-/* Floating hearts */
+.glow {
+  animation: glowEffect 2s infinite alternate;
+}
+
+@keyframes glowEffect {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 30px #ff4da6; }
+}
+
+.typing {
+  border-right: 2px solid white;
+  white-space: pre-line;
+  overflow: hidden;
+}
+
+.slideshow img {
+  width: 260px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 10px;
+  display: none;
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
 .heart {
   position: fixed;
   bottom: -20px;
@@ -100,85 +120,87 @@ button:hover {
   100% {transform: translateY(-110vh);}
 }
 
-.countdown {
-  font-size: 28px;
-  margin-top: 15px;
-  font-weight: bold;
+#noBtn {
+  position: relative;
 }
 </style>
 </head>
 
 <body>
 
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener("click", function () {
+  document.getElementById("bgMusic").play();
+}, { once: true });
+</script>
+
 <!-- PAGE 1 -->
 <div class="section active" id="page1">
   <div class="emoji-bg">💖👫💖</div>
-  <h1>Deepanshi</h1>
-  <h3>My Bittu. My Milky. My Life.</h3>
-  <p>
-    Loving you is not just a feeling.  
-    It is my peace, my strength, and my biggest blessing.
-  </p>
-  <button onclick="nextPage('page2')">Continue 💌</button>
+  <h1 onclick="secretClick()">Deepanshi</h1>
+  <p>My Bittu. My Milky. My Everything.</p>
+  <button onclick="nextPage('page2')">Continue ❤️</button>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 - SLIDESHOW -->
 <div class="section" id="page2">
-  <div class="emoji-bg">🥰🌹✨</div>
-  <h2>Why You Are Special</h2>
-  <p>
-    You are honest in a world full of filters.  
-    You are beauty with brain.  
-    You are cute, strong, and full of grace.
-    <br><br>
-    And yes… you love me so purely that sometimes I call you dumb 😌  
-    But that purity is what makes you rare.
-  </p>
-  <button onclick="nextPage('page3')">Doctor ❤️ Engineer</button>
+  <div class="emoji-bg">📸💞✨</div>
+  <h2>Our Memories</h2>
+  <div class="slideshow">
+    <img src="photo1.jpeg" class="slide">
+    <img src="photo2.jpeg" class="slide">
+    <img src="photo3.jpeg" class="slide">
+    <img src="photo4.jpeg" class="slide">
+    <img src="photo5.jpeg" class="slide">
+    <img src="photo6.jpeg" class="slide">
+  </div>
+  <button onclick="nextPage('page3')">Next 💌</button>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3 - DOCTOR QUEEN -->
 <div class="section" id="page3">
-  <div class="emoji-bg">👩‍⚕️❤️👨‍💻</div>
-  <h2>Doctor & Engineer</h2>
+  <div class="emoji-bg">👑👩‍⚕️✨</div>
+  <h2>My Doctor Queen</h2>
   <p>
-    You heal people.  
-    I build things.
-    <br><br>
-    But together, we are building a future.  
-    Different careers. Same loyalty. Same dreams.
+    You heal people with your knowledge and heart.
+    I feel proud that my girl is intelligent, strong and kind.
+    Engineer hoon main… but meri life ki real CEO tum ho 👑
   </p>
-  <button onclick="nextPage('page4')">Countdown ⏳</button>
+  <button onclick="nextPage('page4')">Valentine Plan 🌅</button>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 4 - VALENTINE PLAN -->
 <div class="section" id="page4">
-  <div class="emoji-bg">⏳💑🌙</div>
-  <h2>Until We Meet</h2>
-  <div class="countdown" id="timer"></div>
+  <div class="emoji-bg">🌅🌹🌙</div>
+  <h2>Our Valentine Plan</h2>
   <p>
-    Long distance is temporary.  
-    What we have is permanent.
+    🌅 Morning – Good morning Doctor Queen ❤️  
+    ☕ Afternoon – Virtual coffee date  
+    🌇 Evening – Dress up video call  
+    🌙 Night – Future talk and soft smiles
   </p>
-  <button onclick="nextPage('page5')">Final Surprise ❤️</button>
+  <button onclick="nextPage('page5')">Love Letter 💌</button>
 </div>
 
-<!-- PAGE 5 -->
+<!-- PAGE 5 - TYPING LETTER -->
 <div class="section" id="page5">
+  <div class="emoji-bg">💌✨❤️</div>
+  <h2>For You</h2>
+  <p id="typedText" class="typing"></p>
+  <button onclick="nextPage('page6')">Final Promise 💍</button>
+</div>
+
+<!-- PAGE 6 - FINAL GLOW -->
+<div class="section" id="page6">
   <div class="emoji-bg">💍🌎❤️</div>
-  <h2>
-    I Don’t Just Want You  
-    As My Valentine…
-  </h2>
-  <p>
-    I want you beside me  
-    in every duty night,  
-    every success,  
-    every challenge.
-    <br><br>
-    My Deepanshi.  
-    My Forever.
-  </p>
+  <h2 class="glow">Will You Stay With Me Forever?</h2>
+  <button onclick="alert('I knew it 😌❤️')">Yes ❤️</button>
+  <button id="noBtn" onmouseover="moveNo()">No 😜</button>
 </div>
 
 <script>
@@ -189,17 +211,58 @@ function nextPage(id) {
   document.getElementById(id).classList.add('active');
 }
 
-// Countdown to March 15, 2026 (change if needed)
-var countDownDate = new Date("March 15, 2026 00:00:00").getTime();
+/* Secret Click */
+let clickCount = 0;
+function secretClick() {
+  clickCount++;
+  if (clickCount === 3) {
+    alert("Secret: No matter what happens, I choose you. Always. ❤️");
+  }
+}
 
-setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  document.getElementById("timer").innerHTML = days + " Days Left ❤️";
-}, 1000);
+/* Slideshow */
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+function showSlides() {
+  slides.forEach(slide => slide.style.display = "none");
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2500);
+}
+showSlides();
 
-// Floating hearts
+/* Typing Effect */
+const text = `You came into my life as an unknown girl —
+cute, innocent, quiet.
+
+You brought love, care, and meaning into my world.
+I love how you respect and value me.
+
+I'm sorry I'm not with you this Valentine.
+But I promise we will celebrate every Valentine together.
+
+You are my shine. My life. My forever. ❤️`;
+
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typedText").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+typeWriter();
+
+/* Move No Button */
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.top = Math.random() * 300 + "px";
+  btn.style.left = Math.random() * 300 + "px";
+}
+
+/* Floating Hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.classList.add("heart");
