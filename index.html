@@ -8,27 +8,65 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #1e1e2f, #3a1c71, #d76d77, #ffafbd);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
   color: white;
-  text-align: center;
   overflow-x: hidden;
 }
 
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
 .section {
-  padding: 60px 20px;
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  animation: fadeIn 1.5s ease;
+}
+
+.section.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  max-width: 700px;
+  line-height: 1.8;
+  font-size: 18px;
 }
 
 button {
-  padding: 12px 25px;
-  border: none;
+  margin-top: 30px;
+  padding: 12px 28px;
   border-radius: 30px;
+  border: none;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   background: white;
-  color: #ff4d6d;
-  font-weight: bold;
-  margin-top: 20px;
+  color: #d63384;
   transition: 0.3s;
 }
 
@@ -36,112 +74,127 @@ button:hover {
   transform: scale(1.1);
 }
 
-.hidden {
-  display: none;
-}
-
-.heart {
-  position: fixed;
-  top: -10px;
-  color: red;
-  animation: fall 5s linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
-}
-
-.quiz-box {
-  background: rgba(255,255,255,0.2);
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-}
-
-.big-text {
-  font-size: 40px;
+.big {
+  font-size: 38px;
   font-weight: bold;
   margin-top: 20px;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-110vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="section" id="intro">
-  <h1>For My Deepanshi ❤️</h1>
-  <h3>(My Bittu, My Milky)</h3>
-  <p>Distance only tests how far love can travel...</p>
-  <button onclick="showSection('love')">Open My Heart ❤️</button>
+<!-- Page 1 -->
+<div class="section active" id="page1">
+  <h1>Deepanshi ❤️</h1>
+  <h3>My Bittu. My Milky.</h3>
+  <p>
+    Distance is not easy…  
+    But loving you is the easiest decision of my life.  
+    Every day, I feel lucky that you chose me.
+  </p>
+  <button onclick="nextPage('page2')">Read My Heart 💌</button>
 </div>
 
-<div class="section hidden" id="love">
-  <h2>Why I Love You</h2>
-  <p>1. You are honest and pure.</p>
-  <p>2. You are cute & beauty with brain.</p>
-  <p>3. You are little dumb because you love me 😜</p>
-  <p>4. You are well mannered and the hottest.</p>
-  <p>5. You are the world’s best partner — jo mujhe pyaar aur paise har tarika mai samjhati hai.</p>
-  <button onclick="showSection('quiz')">Fun Time 🎉</button>
+<!-- Page 2 -->
+<div class="section" id="page2">
+  <h2>Why You Mean So Much To Me</h2>
+  <p>
+    You are honest — and in today’s world that is rare.  
+    You are cute, beautiful, and beauty with brain.  
+    I call you dumb sometimes… but only because you love me so purely. 😌  
+    You are well-mannered, strong, and honestly the hottest.  
+    <br><br>
+    But more than everything —  
+    You guide me in love, in life, and even in money matters.  
+    You don’t just love me… you improve me.
+  </p>
+  <button onclick="nextPage('page3')">Something Special ❤️</button>
 </div>
 
-<div class="section hidden" id="quiz">
-  <h2>How Well Do You Know Us? 😍</h2>
-  <div class="quiz-box">
-    <p>Who is the luckiest boy?</p>
-    <button onclick="correct()">Rishabh 😎</button>
-    <button onclick="wrong()">Someone Else 😒</button>
+<!-- Page 3 Doctor & Engineer -->
+<div class="section" id="page3">
+  <h2>A Doctor ❤️ An Engineer</h2>
+  <p>
+    You heal hearts in hospitals…  
+    And without even trying, you healed mine too.
+    <br><br>
+    As a doctor, you save lives.  
+    As my partner, you give my life meaning.
+    <br><br>
+    I may be an engineer who builds systems and solves problems…  
+    But with you, I am learning how to build a future.
+    <br><br>
+    Different professions.  
+    Different responsibilities.  
+    Same loyalty. Same commitment. Same love.
+  </p>
+  <button onclick="nextPage('page4')">Until We Meet ❤️</button>
+</div>
+
+<!-- Page 4 Long Distance -->
+<div class="section" id="page4">
+  <h2>Until March / April…</h2>
+  <p>
+    I count days not because I miss you…  
+    But because every passing day brings me closer  
+    to holding your hand again.
+    <br><br>
+    Long distance is temporary.  
+    What we have is permanent.
+  </p>
+  <button onclick="nextPage('page5')">Final Words 💞</button>
+</div>
+
+<!-- Page 5 Final -->
+<div class="section" id="page5">
+  <div class="big">
+    I Don’t Just Want You  
+    As My Valentine…  
+    I Want You As My Forever. ❤️
   </div>
-  <p id="quiz-result"></p>
-  <button onclick="showSection('countdown')">Next Surprise 💖</button>
-</div>
-
-<div class="section hidden" id="countdown">
-  <h2>Counting Days Until I See You ❤️</h2>
-  <h3 id="timer"></h3>
-  <button onclick="showSection('final')">Final Surprise 🎁</button>
-</div>
-
-<div class="section hidden" id="final">
-  <div class="big-text">Will You Be My Forever Valentine? ❤️</div>
-  <p>I love you more every single day, Deepanshi.</p>
+  <p>
+    Through night duties, stress, success, and every phase of life —  
+    I promise to stand beside you.
+    <br><br>
+    I am proud of the doctor you are.  
+    And I promise to be the man you can always rely on.
+    <br><br>
+    My Deepanshi. My Bittu. My Milky.  
+    My Forever.
+  </p>
 </div>
 
 <script>
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
+function nextPage(id) {
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
 }
 
-function correct() {
-  document.getElementById("quiz-result").innerHTML = "Correct! Because I have YOU ❤️";
-}
-
-function wrong() {
-  document.getElementById("quiz-result").innerHTML = "Wrong answer 😜 Try again Bittu!";
-}
-
-// Countdown (Set April 1 as placeholder – change if needed)
-var countDownDate = new Date("April 1, 2026 00:00:00").getTime();
-
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  document.getElementById("timer").innerHTML = days + " Days Left ❤️";
-}, 1000);
-
-// Falling hearts
+// Floating hearts animation
 setInterval(() => {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
+  setTimeout(() => heart.remove(), 6000);
 }, 500);
 </script>
 
