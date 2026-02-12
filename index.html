@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Deepanshi ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 60px 20px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  color: #ff4d6d;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.heart {
+  position: fixed;
+  top: -10px;
+  color: red;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.quiz-box {
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.big-text {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section" id="intro">
+  <h1>For My Deepanshi ❤️</h1>
+  <h3>(My Bittu, My Milky)</h3>
+  <p>Distance only tests how far love can travel...</p>
+  <button onclick="showSection('love')">Open My Heart ❤️</button>
+</div>
+
+<div class="section hidden" id="love">
+  <h2>Why I Love You</h2>
+  <p>1. You are honest and pure.</p>
+  <p>2. You are cute & beauty with brain.</p>
+  <p>3. You are little dumb because you love me 😜</p>
+  <p>4. You are well mannered and the hottest.</p>
+  <p>5. You are the world’s best partner — jo mujhe pyaar aur paise har tarika mai samjhati hai.</p>
+  <button onclick="showSection('quiz')">Fun Time 🎉</button>
+</div>
+
+<div class="section hidden" id="quiz">
+  <h2>How Well Do You Know Us? 😍</h2>
+  <div class="quiz-box">
+    <p>Who is the luckiest boy?</p>
+    <button onclick="correct()">Rishabh 😎</button>
+    <button onclick="wrong()">Someone Else 😒</button>
+  </div>
+  <p id="quiz-result"></p>
+  <button onclick="showSection('countdown')">Next Surprise 💖</button>
+</div>
+
+<div class="section hidden" id="countdown">
+  <h2>Counting Days Until I See You ❤️</h2>
+  <h3 id="timer"></h3>
+  <button onclick="showSection('final')">Final Surprise 🎁</button>
+</div>
+
+<div class="section hidden" id="final">
+  <div class="big-text">Will You Be My Forever Valentine? ❤️</div>
+  <p>I love you more every single day, Deepanshi.</p>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function correct() {
+  document.getElementById("quiz-result").innerHTML = "Correct! Because I have YOU ❤️";
+}
+
+function wrong() {
+  document.getElementById("quiz-result").innerHTML = "Wrong answer 😜 Try again Bittu!";
+}
+
+// Countdown (Set April 1 as placeholder – change if needed)
+var countDownDate = new Date("April 1, 2026 00:00:00").getTime();
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("timer").innerHTML = days + " Days Left ❤️";
+}, 1000);
+
+// Falling hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+</script>
+
+</body>
+</html>
