@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Deepanshi ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(-45deg, #1e1e2f, #3a1c71, #d76d77, #ffafbd);
   background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
+  animation: gradientBG 15s ease infinite;
   color: white;
   overflow-x: hidden;
 }
@@ -29,153 +31,153 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 30px;
-  animation: fadeIn 1.5s ease;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
 }
 
 .section.active {
   display: flex;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 46px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.6);
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 p {
-  max-width: 700px;
-  line-height: 1.8;
+  max-width: 750px;
+  line-height: 1.9;
   font-size: 18px;
 }
 
 button {
-  margin-top: 30px;
-  padding: 12px 28px;
+  margin-top: 35px;
+  padding: 14px 30px;
   border-radius: 30px;
   border: none;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   background: white;
   color: #d63384;
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 button:hover {
   transform: scale(1.1);
 }
 
-.big {
-  font-size: 38px;
-  font-weight: bold;
-  margin-top: 20px;
+.emoji-bg {
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Floating hearts */
 .heart {
   position: fixed;
   bottom: -20px;
-  font-size: 20px;
+  font-size: 18px;
   animation: floatUp 6s linear infinite;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 @keyframes floatUp {
   0% {transform: translateY(0);}
   100% {transform: translateY(-110vh);}
 }
+
+.countdown {
+  font-size: 28px;
+  margin-top: 15px;
+  font-weight: bold;
+}
 </style>
 </head>
 
 <body>
 
-<!-- Page 1 -->
+<!-- PAGE 1 -->
 <div class="section active" id="page1">
-  <h1>Deepanshi ❤️</h1>
-  <h3>My Bittu. My Milky.My life</h3>
+  <div class="emoji-bg">💖👫💖</div>
+  <h1>Deepanshi</h1>
+  <h3>My Bittu. My Milky. My Life.</h3>
   <p>
-    Distance is not easy…  
-    But loving you is the easiest and lucky decision of my life.  
-    Every day, I feel lucky that you chose me.
+    Loving you is not just a feeling.  
+    It is my peace, my strength, and my biggest blessing.
   </p>
-  <button onclick="nextPage('page2')">Read My Heart 💌</button>
+  <button onclick="nextPage('page2')">Continue 💌</button>
 </div>
 
-<!-- Page 2 -->
+<!-- PAGE 2 -->
 <div class="section" id="page2">
-  <h2>Why You Mean So Much To Me</h2>
+  <div class="emoji-bg">🥰🌹✨</div>
+  <h2>Why You Are Special</h2>
   <p>
-    You are honest — and in today’s world that is rare.  
-    You are cute, beautiful, and beauty with brain.  
-    I call you dumb sometimes… but only because you love me so purely. 😌  
-    You are well-mannered, strong, and honestly the hottest.  
+    You are honest in a world full of filters.  
+    You are beauty with brain.  
+    You are cute, strong, and full of grace.
     <br><br>
-    But more than everything —  
-    You guide me in love, in life, and even in money matters.  
-    You don’t just love me… you improve me.
+    And yes… you love me so purely that sometimes I call you dumb 😌  
+    But that purity is what makes you rare.
   </p>
-  <button onclick="nextPage('page3')">Something Special ❤️</button>
+  <button onclick="nextPage('page3')">Doctor ❤️ Engineer</button>
 </div>
 
-<!-- Page 3 Doctor & Engineer -->
+<!-- PAGE 3 -->
 <div class="section" id="page3">
-  <h2>A Doctor ❤️ An Engineer</h2>
+  <div class="emoji-bg">👩‍⚕️❤️👨‍💻</div>
+  <h2>Doctor & Engineer</h2>
   <p>
-    You heal hearts in hospitals…  
-    And without even trying, you healed mine too.
+    You heal people.  
+    I build things.
     <br><br>
-    As a doctor, you save lives.  
-    As my partner, you give my life meaning.
-    <br><br>
-    I may be an engineer who builds systems and solves problems…  
-    But with you, I am learning how to build a future.
-    <br><br>
-    Different professions.  
-    Different responsibilities.  
-    Same loyalty. Same commitment. Same love.
+    But together, we are building a future.  
+    Different careers. Same loyalty. Same dreams.
   </p>
-  <button onclick="nextPage('page4')">Until We Meet ❤️</button>
+  <button onclick="nextPage('page4')">Countdown ⏳</button>
 </div>
 
-<!-- Page 4 Long Distance -->
+<!-- PAGE 4 -->
 <div class="section" id="page4">
-  <h2>Until March / April…</h2>
+  <div class="emoji-bg">⏳💑🌙</div>
+  <h2>Until We Meet</h2>
+  <div class="countdown" id="timer"></div>
   <p>
-    I count days not because I miss you…  
-    But because every passing day brings me closer  
-    to holding your hand again.
-    <br><br>
     Long distance is temporary.  
     What we have is permanent.
   </p>
-  <button onclick="nextPage('page5')">Final Words 💞</button>
+  <button onclick="nextPage('page5')">Final Surprise ❤️</button>
 </div>
 
-<!-- Page 5 Final -->
+<!-- PAGE 5 -->
 <div class="section" id="page5">
-  <div class="big">
+  <div class="emoji-bg">💍🌎❤️</div>
+  <h2>
     I Don’t Just Want You  
-    As My Valentine…  
-    I Want You As My Forever. ❤️
-  </div>
+    As My Valentine…
+  </h2>
   <p>
-    Through night duties, stress, success, and every phase of life —  
-    I promise to stand beside you.
+    I want you beside me  
+    in every duty night,  
+    every success,  
+    every challenge.
     <br><br>
-    I am proud of the doctor you are.  
-    And I promise to be the man you can always rely on.
-    <br><br>
-    My Deepanshi. My Bittu. My Milky.  
-    My Forever.My Homie
+    My Deepanshi.  
+    My Forever.
   </p>
 </div>
 
@@ -187,7 +189,17 @@ function nextPage(id) {
   document.getElementById(id).classList.add('active');
 }
 
-// Floating hearts animation
+// Countdown to March 15, 2026 (change if needed)
+var countDownDate = new Date("March 15, 2026 00:00:00").getTime();
+
+setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("timer").innerHTML = days + " Days Left ❤️";
+}, 1000);
+
+// Floating hearts
 setInterval(() => {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -195,7 +207,7 @@ setInterval(() => {
   heart.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 6000);
-}, 500);
+}, 600);
 </script>
 
 </body>
